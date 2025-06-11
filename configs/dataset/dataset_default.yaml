@@ -1,0 +1,8 @@
+reduction_type: custom
+structual_dist: True
+split_ring: True
+filter: False
+charged: False
+
+random_subset: null
+pin_memory: False

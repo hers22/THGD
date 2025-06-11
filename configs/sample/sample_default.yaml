@@ -1,0 +1,17 @@
+batch_size : 256
+num_batch : 5
+
+scaffold : null
+num_nodes: null # fix the node per graph in coarse sample stage
+
+coarsed_cfg : null
+expanded_cfg : null
+coarsed_resume : null
+expanded_resume : null
+
+skip_t : 1
+devices : 0
+save_graphs : True
+enable_progress_bar : True
+# sample_type', type=str default='all', help='["all", "coarse", "expand", "from_coarse"]')
+# coarsed_path

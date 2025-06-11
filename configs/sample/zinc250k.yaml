@@ -1,0 +1,17 @@
+batch_size : 512
+num_batch : 60
+precision: high  # high | medium, 
+
+scaffold : null # fill the SMILES of the scaffold here, enabled when not null
+num_nodes: null # fix the node per graph in coarse sample stage
+
+coarse_cfg: ../configs/zinc250k_exp/coarse.yaml
+refine_cfg: ../configs/zinc250k_exp/refine.yaml
+
+coarse_ckpt: ../checkpoints/zinc250k/coarse_last.ckpt
+refine_ckpt: ../checkpoints/zinc250k/refine_last.ckpt
+
+skip_t : 1
+devices : 0
+save_graphs : True   # save the one-hot output tensor
+enable_progress_bar : True

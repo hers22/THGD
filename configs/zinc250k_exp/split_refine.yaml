@@ -1,0 +1,61 @@
+# @package _global_
+dataset:
+    name: 'expanded_zinc250k'          
+    datadir: '../data/zinc250k'
+    graph_type: 'expand'
+    reduction_type: custom
+    
+    structual_dist: True
+    split_ring: True
+    filter: True
+    charged: True
+
+    random_subset: null
+    pin_memory: False
+
+general:
+    name : 'expanded_zinc250k_custom'
+    resample_step: 1
+    skip: 1
+    wandb: 'online'
+    remove_h: False
+    resume: /home/hers22/HRS/MHdiff/outputs/2024-12-24/00-57-28-expanded_zinc250k_custom/checkpoints/expanded_zinc250k_custom_resume/epoch=221.ckpt
+    test_only: null
+    check_val_every_n_epochs: 1
+    val_check_interval: null
+    number_chain_steps: 50
+    sample_every_val: 20
+    samples_to_generate: 256
+    samples_to_save: 20
+    chains_to_save: 5
+    log_every_steps: 50
+
+    final_model_samples_to_generate: 25000
+    final_model_samples_to_save: 50
+    final_model_chains_to_save: 2
+    
+train:
+    optimizer: adamw
+    n_epochs: 300
+    batch_size: 512
+    save_model: True
+    lr: 1e-4
+    devices: [0, 1]
+    num_workers: 4
+
+model:
+    n_layers: 12
+    lambda_train: [5, 0]
+    type: 'discrete'
+    transition: 'masked_marginal'                          # uniform or marginal
+    model: 'graph_tf'
+    diffusion_steps: 500
+    diffusion_noise_schedule: 'cosine'              # 'cosine', 'polynomial_2'
+    extra_features: 'all'                              # 'all', 'cycles', 'eigenvalues' or null
+
+  # Do not set hidden_mlp_E, dim_ffE too high, computing large tensors on the edges is costly
+  # At the moment (03/08), y contains quite little information
+    hidden_mlp_dims: { 'X': 256, 'E': 128, 'y': 256}
+
+  # The dimensions should satisfy dx % n_head == 0
+    hidden_dims: { 'dx': 256, 'de': 64, 'dy': 128, 'n_head': 8, 'dim_ffX': 256, 'dim_ffE': 128, 'dim_ffy': 256}

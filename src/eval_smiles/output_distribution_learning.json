@@ -1,0 +1,65 @@
+{
+    "guacamol_version": "0.5.5",
+    "benchmark_suite_version": "v1",
+    "timestamp": "20250314-0409",
+    "samples": 30720,
+    "results": [
+        {
+            "benchmark_name": "Validity",
+            "score": 0.94248046875,
+            "sampling_time": 3.9441869258880615,
+            "metadata": {
+                "number_samples": 30720,
+                "number_valid": 28953
+            }
+        },
+        {
+            "benchmark_name": "Uniqueness",
+            "score": 0.9424479166666667,
+            "sampling_time": 6.329410791397095,
+            "metadata": {
+                "number_samples": 30720,
+                "number_unique": 28952
+            }
+        },
+        {
+            "benchmark_name": "Novelty",
+            "score": 0.9917107035540359,
+            "sampling_time": 6.482043504714966,
+            "metadata": {
+                "number_samples": 28953,
+                "number_novel": 28713
+            }
+        },
+        {
+            "benchmark_name": "KL divergence",
+            "score": 0.9439079681155558,
+            "sampling_time": 276.846843957901,
+            "metadata": {
+                "number_samples": 28953,
+                "kl_divs": {
+                    "BertzCT": 0.005007699468764195,
+                    "MolLogP": 0.008785853250348495,
+                    "MolWt": 0.012932018168363346,
+                    "TPSA": 0.0043928532442304305,
+                    "NumHAcceptors": 0.007439847603765551,
+                    "NumHDonors": 0.0009167170941390496,
+                    "NumRotatableBonds": 0.007398320343570839,
+                    "NumAliphaticRings": 0.0024401964654222857,
+                    "NumAromaticRings": 0.0010080440809756622,
+                    "internal_similarity": 0.7149868872003831
+                }
+            }
+        },
+        {
+            "benchmark_name": "Frechet ChemNet Distance",
+            "score": 0.8025700101733538,
+            "sampling_time": 19.99932074546814,
+            "metadata": {
+                "number_reference_molecules": 28953,
+                "number_generated_molecules": 28953,
+                "FCD": 1.099680938458775
+            }
+        }
+    ]
+}
